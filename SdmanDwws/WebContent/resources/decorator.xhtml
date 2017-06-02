@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"    
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+	<h:outputStylesheet name="bootstrap/css/bootstrap.min.css" library="AdminLTE" />
+	<h:outputStylesheet name="dist/css/AdminLTE.min.css" library="AdminLTE" />
+	<h:outputStylesheet name="dist/css/skins/skin-red.min.css" library="AdminLTE" />
+	<title><h:outputText value="SDMan :: " /><ui:insert name="title" /></title>
+	<h:outputStylesheet name="sdman.css" library="sdman" />
+</h:head>
+<h:body class="hold-transition skin-red sidebar-mini">
+	<div class="wrapper">
+		<header class="main-header">
+			<h:link outcome="/index" styleClass="logo">
+      			<!-- logo for regular state and mobile devices -->
+      			<h:panelGroup><span class="logo-lg"><b>SDMAN</b></span></h:panelGroup>
+      		</h:link>
+    		<!-- Header Navbar: style can be found in header.less -->
+    		<nav class="navbar navbar-static-top" role="navigation">
+      			<!-- Sidebar toggle button
+      			<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        		<span class="sr-only">Toggle navigation</span>
+      			</a>-->
+
+      			<div class="navbar-custom-menu">
+        			<ul class="nav navbar-nav">
+          			<!-- Messages: style can be found in dropdown.less-->
+          			<!-- User Account: style can be found in dropdown.less -->
+          				<li>
+							<h:link outcome="/core/cadastro/cadastro">
+								<span class="hidden-xs">Cadastrar</span>
+	            			</h:link>
+	            		</li>
+          				<li>
+							<h:link outcome="/core/login/login">
+								<span class="hidden-xs">Login</span>
+	            			</h:link>
+	            		</li>
+          				<li>
+							<h:link outcome="/core/contato/contato">
+								<span class="hidden-xs">Contato</span>
+	            			</h:link>
+	            		</li>	            		
+	            	</ul>
+      			</div>
+   			</nav>
+		</header>
+		<!-- Main content -->
+		<section class="content">			
+			<!-- Main contents: -->
+			<ui:insert name="contents" />
+		</section>
+		
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			<!-- To the right -->
+			<!-- Default to the left -->
+			<strong>SDMan - Copyright &#169; 2017 <a href="http://ufes.br">UFES</a>.
+			</strong> All rights reserved.
+		</footer>
+	</div>
+	
+	<!-- REQUIRED JS SCRIPTS -->
+	<!-- Bootstrap 3.3.5 -->
+	<h:outputScript name="bootstrap/js/bootstrap.min.js" library="AdminLTE" />
+	<!-- AdminLTE App -->
+	<h:outputScript name="dist/js/app.min.js" library="AdminLTE" />
+</h:body>
+</html>

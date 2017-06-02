@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+				template="/resources/decorator.xhtml">
+<ui:define name="title">Contato</ui:define>
+<!-- Conteudo da página -->
+<ui:define name="contents">
+	<h1 class="mainTitle" >Contato</h1>
+	<!-- <h:form method="POST" action="http://formspree.io/ksimonassi@gmail.com">
+        <h:panelGrid columns="2"> 
+            <h:outputLabel class="mainTitle" value="email:" />
+            <h:inputText type="email" name="email"/>
+            
+            <h:outputLabel class="mainTitle" value="mensagem:" />
+            
+                
+            <h:commandButton value="submit" type="submit" />
+        </h:panelGrid>
+        <h:messages />    
+    </h:form>-->
+    	<ui:decorate template="/resources/form.xhtml">
+		<ui:param name="formName" value="form" />
+		
+		<ui:decorate template="/resources/formfield.xhtml">
+			<ui:param name="fieldName" value="email" />
+			<ui:param name="label" value="Email" />
+			<h:inputText id="email" value="" required="true" pt:placeholder="Digite o seu Email">
+				<f:ajax event="keypress" render="emailField" />
+			</h:inputText>
+		</ui:decorate>
+
+		<ui:decorate template="/resources/formfield.xhtml">
+			<ui:param name="fieldName" value="message" />
+			<ui:param name="label" value="Mensagem" />
+			<h:inputTextarea name="message" />
+		</ui:decorate>
+
+		<h:commandButton id="sendButton" class="sendButton" value="Enviar" />
+		
+	</ui:decorate>
+</ui:define>
+</ui:composition>

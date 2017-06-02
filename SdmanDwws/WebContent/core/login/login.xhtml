@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+				template="/resources/decorator.xhtml">
+				
+<ui:define name="title">Login</ui:define>
+<!-- Conteudo da página -->
+<ui:define name="contents">
+	<h1 class="mainTitle" >Login</h1>
+	<!-- The form to be filled with authentication information. -->
+	<ui:decorate template="/resources/form.xhtml">
+		<ui:param name="formName" value="form" />
+		
+		<ui:decorate template="/resources/formfield.xhtml">
+			<ui:param name="fieldName" value="email" />
+			<ui:param name="label" value="Email" />
+			<h:inputText id="email" value="#{LoginController.email}" required="true" pt:placeholder="Digite o seu Email">
+				<f:ajax event="keypress" render="emailField" />
+			</h:inputText>
+		</ui:decorate>
+
+		<ui:decorate template="/resources/formfield.xhtml">
+			<ui:param name="fieldName" value="password" />
+			<ui:param name="label" value="Senha" />
+			<h:inputSecret id="password" value="#{LoginController.senha}" required="true" feedback="false" />
+		</ui:decorate>
+
+		<h:commandButton id="loginButton" class="loginButton" action="#{LoginController.login}" value="Entrar" >
+			<f:ajax execute="@this" render="@none" />
+		</h:commandButton>
+		
+	</ui:decorate>
+</ui:define>
+</ui:composition>

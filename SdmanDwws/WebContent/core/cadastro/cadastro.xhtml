@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+				template="/resources/decorator.xhtml">
+				
+<ui:define name="title">Cadastro</ui:define>
+<!-- Conteudo da página -->
+<ui:define name="contents">
+	<h1 class="mainTitle" >Cadastro</h1>
+	
+	<!-- The form to be filled with authentication information. -->
+	<ui:decorate template="/resources/form.xhtml">
+		<ui:param name="formName" value="form" />
+		<!-- <ui:param name="formLabel" value="#{msgsCore['login.form']}" /> -->
+
+		<ui:decorate template="/resources/formfield.xhtml">
+			<ui:param name="fieldName" value="nome" />
+			<ui:param name="label" value="Nome" />
+			<h:inputText id="nome" value="#{CadastroController.usuario.nome}" required="true" style="width:250px" pt:placeholder="Digite o seu Nome Completo"/>
+				<!-- <f:ajax event="blur" render="emailField" /> -->
+		</ui:decorate>
+
+		<ui:decorate template="/resources/formfield.xhtml">
+			<ui:param name="fieldName" value="telefone" />
+			<ui:param name="label" value="Telefone" />
+			<h:inputText id="telefone" value="#{CadastroController.usuario.telefone}" required="true" style="width:250px" pt:placeholder="Digite o seu Número de Telefone"/>
+		</ui:decorate>
+		
+		<ui:decorate template="/resources/formfield.xhtml">
+			<ui:param name="fieldName" value="cpf" />
+			<ui:param name="label" value="CPF" />
+			<h:inputText id="cpf" value="#{CadastroController.usuario.cpf}" required="true" style="width:250px" pt:placeholder="Digite o seu CPF"/>
+		</ui:decorate>
+		
+		<ui:decorate template="/resources/formfield.xhtml">
+			<ui:param name="fieldName" value="data" />
+			<ui:param name="label" value="Data de Nascimento" />
+			<h:inputText id="data" value="#{CadastroController.usuario.dataNascimento}" required="true" style="width:250px" pt:placeholder="Digite a sua Data de Nascimento"/>
+		</ui:decorate>
+
+		<ui:decorate template="/resources/formfield.xhtml">
+			<ui:param name="fieldName" value="email" />
+			<ui:param name="label" value="Email" />
+			<h:inputText id="email" value="#{CadastroController.usuario.email}" required="true" style="width:250px" pt:placeholder="Digite o seu Email"/>
+				<!--  <f:ajax event="keypress" render="emailField" />
+			</h:inputText>-->
+		</ui:decorate>
+
+		<ui:decorate template="/resources/formfield.xhtml">
+			<ui:param name="fieldName" value="password" />
+			<ui:param name="label" value="Senha" />
+			<h:inputSecret id="password" value="#{CadastroController.usuario.senha}" style="width:250px" required="true" feedback="false" />
+		</ui:decorate>
+
+		<h:commandButton id="registerButton" class="registerButton" action="#{CadastroController.cadastrar}" value="Cadastrar" >
+			<f:ajax execute="@this" render="@none" />
+		</h:commandButton>
+		
+	</ui:decorate>
+</ui:define>
+</ui:composition>

@@ -11,10 +11,6 @@ public class CadastroServiceBean {
 
 	@EJB private UsuarioDAO usuarioDao;
 
-	public Usuario createNewEntity() {
-		return new Usuario();
-	}
-
 	public void cadastrar(Usuario usuario){
 		// TODO Auto-generated method stub
 		//usar save do dao

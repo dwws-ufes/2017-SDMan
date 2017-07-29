@@ -29,6 +29,9 @@ public class CadastroController {
 	public void cadastrar() throws IOException{
 
 		cadastroService.cadastrar(usuario);
+		
+		//retornar string
+		//return "/login.xhtml";
 		FacesContext.getCurrentInstance().getExternalContext().redirect("/SdmanDwws/core/login/login.faces");
 	}
 

@@ -6,32 +6,32 @@
 				xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 				template="/resources/decorator.xhtml">
 				
-<ui:define name="title">Login</ui:define>
+<ui:define name="title"><h:outputText value="#{sdm['general.login']}" /></ui:define>
 <!-- Conteudo da página -->
 <ui:define name="contents">
-	<h1 class="mainTitle" >Login</h1>
-	<!-- The form to be filled with authentication information. -->
-	<ui:decorate template="/resources/form.xhtml">
-		<ui:param name="formName" value="form" />
-		
-		<ui:decorate template="/resources/formfield.xhtml">
-			<ui:param name="fieldName" value="email" />
-			<ui:param name="label" value="Email" />
-			<h:inputText id="email" value="#{LoginController.email}" required="true" pt:placeholder="Digite o seu Email">
-				<f:ajax event="keypress" render="emailField" />
-			</h:inputText>
+	<h1 class="mainTitle" ><h:outputText value="#{sdm['general.login']}" /></h1>
+	<h:form>
+		<!-- The form to be filled with authentication information. -->
+		<ui:decorate template="/resources/form.xhtml">
+			<ui:param name="formName" value="form" />
+			
+			<ui:decorate template="/resources/formfield.xhtml">
+				<ui:param name="fieldName" value="email" />
+				<ui:param name="label" value="#{sdm['general.email']}" />
+				<h:inputText id="email" value="#{LoginController.email}" required="true" pt:placeholder="#{sdm['general.typeEmail']}">
+					<f:ajax event="blur" update="emailField" />
+				</h:inputText>
+			</ui:decorate>
+	
+			<ui:decorate template="/resources/formfield.xhtml">
+				<ui:param name="fieldName" value="password" />
+				<ui:param name="label" value="#{sdm['general.password']}" />
+				<h:inputSecret id="password" value="#{LoginController.senha}" required="true" feedback="false" />
+			</ui:decorate>
+	
+			<h:commandButton id="loginButton" class="loginButton" action="#{LoginController.login}" value="#{sdm['general.login']}" type="submit"/>
+			
 		</ui:decorate>
-
-		<ui:decorate template="/resources/formfield.xhtml">
-			<ui:param name="fieldName" value="password" />
-			<ui:param name="label" value="Senha" />
-			<h:inputSecret id="password" value="#{LoginController.senha}" required="true" feedback="false" />
-		</ui:decorate>
-
-		<h:commandButton id="loginButton" class="loginButton" action="#{LoginController.login}" value="Entrar" >
-			<f:ajax execute="@this" render="@none" />
-		</h:commandButton>
-		
-	</ui:decorate>
+	</h:form>
 </ui:define>
 </ui:composition>

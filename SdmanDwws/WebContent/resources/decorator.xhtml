@@ -20,7 +20,7 @@
 		<header class="main-header">
 			<h:link outcome="/index" styleClass="logo">
       			<!-- logo for regular state and mobile devices -->
-      			<h:panelGroup><span class="logo-lg"><b>SDMAN</b></span></h:panelGroup>
+      			<h:panelGroup><span class="logo-lg"><b><h:outputText value="#{sdm['title.name']}" /></b></span></h:panelGroup>
       		</h:link>
     		<!-- Header Navbar: style can be found in header.less -->
     		<nav class="navbar navbar-static-top" role="navigation">
@@ -35,17 +35,17 @@
           			<!-- User Account: style can be found in dropdown.less -->
           				<li>
 							<h:link outcome="/core/cadastro/cadastro">
-								<span class="hidden-xs">Cadastrar</span>
+								<span class="hidden-xs"><h:outputText value="#{sdm['general.register']}" /></span>
 	            			</h:link>
 	            		</li>
           				<li>
 							<h:link outcome="/core/login/login">
-								<span class="hidden-xs">Login</span>
+								<span class="hidden-xs"><h:outputText value="#{sdm['general.login']}" /></span>
 	            			</h:link>
 	            		</li>
           				<li>
 							<h:link outcome="/core/contato/contato">
-								<span class="hidden-xs">Contato</span>
+								<span class="hidden-xs"><h:outputText value="#{sdm['general.contact']}" /></span>
 	            			</h:link>
 	            		</li>	            		
 	            	</ul>

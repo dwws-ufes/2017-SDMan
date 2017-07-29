@@ -13,6 +13,18 @@ import br.ufes.inf.nemo.jbutler.ejb.persistence.PersistentObjectSupport;
 @Entity
 public class Usuario extends PersistentObjectSupport {
 	
+	public Usuario(String nome, String telefone, String cpf, Date dataNascimento, String email, String senha,
+			List<Projeto> projetos) {
+		super();
+		this.nome = nome;
+		this.telefone = telefone;
+		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
+		this.email = email;
+		this.senha = senha;
+		this.projetos = projetos;
+	}
+
 	/**
 	 * 
 	 */
@@ -33,6 +45,11 @@ public class Usuario extends PersistentObjectSupport {
 	
 	@OneToMany
 	private List<Projeto> projetos;
+	
+	//construtor
+	public Usuario(){
+		super();
+	}
 
 	public String getNome() {
 		return nome;

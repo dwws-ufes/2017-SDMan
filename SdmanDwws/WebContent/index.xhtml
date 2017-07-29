@@ -4,10 +4,10 @@ xmlns:ui="http://java.sun.com/jsf/facelets"
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:h="http://java.sun.com/jsf/html"
 template="resources/decorator.xhtml">
-<ui:define name="title">Início</ui:define>
-<ui:define name="description">UNDER DEVELOPMENT</ui:define>
+<ui:define name="title"><h:outputText value="#{sdm['title.main']}" /></ui:define>
+<ui:define name="description"><h:outputText value="#{sdm['title.description']}" /></ui:define>
 <ui:define name="contents">
-<h1 id="titleDashboard">SDMan Dashboard</h1>
+<h1 id="titleDashboard"><h:outputText value="#{sdm['title.dashboard']}" /></h1>
     <div align="center" style="margin-top: 20px;">
     	<h:graphicImage id="imageDashboard" name="dist/img/dashboard-icon-3.png" library="AdminLTE" />
 	</div>

@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.enterprise.inject.Model;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 import br.ufes.inf.nemo.jbutler.ejb.persistence.exceptions.MultiplePersistentObjectsFoundException;
 import br.ufes.inf.nemo.jbutler.ejb.persistence.exceptions.PersistentObjectNotFoundException;
@@ -35,18 +36,14 @@ public class LoginController {
 	}
 	
 	public void login() throws IOException, PersistentObjectNotFoundException, MultiplePersistentObjectsFoundException{
+		
 		Usuario u = loginServiceBean.login(email);
 		if (u != null){
-			if(u.getSenha() == senha){
-				FacesContext.getCurrentInstance().getExternalContext().redirect("/SdmanDwws/core/painel/painel.faces");	
-			}else{
-				//msg senha invalida
-			}
-			
+			FacesContext.getCurrentInstance().getExternalContext().redirect("/SdmanDwws/core/painel/painel.faces");	
 		}else{
-			//msg de erro
+				//msg de erro
 		}
-		
+			
 	}
 	
 }

@@ -47,7 +47,13 @@ public class UsuarioJPADAO extends BaseJPADAO<Usuario> implements UsuarioDAO{
 
 		// Filters the query with the email.
 		cq.where(cb.equal(root.get(Usuario_.email), email));
-		Usuario result = executeSingleResultQuery(cq, email);
+		Usuario result = null;
+		try{
+			result = executeSingleResultQuery(cq, email);
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		return result;
     }
 

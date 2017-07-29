@@ -21,6 +21,7 @@ public class LoginServiceBean {
 		// TODO Auto-generated method stub
 		//usar save do dao
 		return usuarioDao.getByEmail(email);
+		//return usuarioDao.retrieveAll();
 		
 	}
 }

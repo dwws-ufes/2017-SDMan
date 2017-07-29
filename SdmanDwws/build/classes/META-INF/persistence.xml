@@ -3,6 +3,8 @@
 	<persistence-unit name="SdmanDwws">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/jboss/datasources/SdmanDwws</jta-data-source>
+		<class>br.ufes.sdman.dashboard.domain.Projeto</class>
+		<class>br.ufes.sdman.dashboard.domain.Usuario</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create"/>
 		</properties>

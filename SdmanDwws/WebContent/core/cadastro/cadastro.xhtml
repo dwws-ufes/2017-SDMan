@@ -44,7 +44,7 @@
 			<ui:param name="fieldName" value="data" />
 			<ui:param name="label" value="#{sdm['general.birthday']}" />
 			<h:inputText id="data" value="#{CadastroController.usuario.dataNascimento}" required="true" style="width:250px" pt:placeholder="#{sdm['general.enterBirthday']}">
-				<f:convertDateTime pattern="dd-MM-yyyy" />
+				<f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:inputText>
 		</ui:decorate>
 
